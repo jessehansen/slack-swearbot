@@ -22,7 +22,10 @@ slapp.command('/swear', msg => {
   let index = random(0, words.length-1);
   let swear = words[index];
   swear.replace(/\*/g, '');
-  msg.respond(swear);
+  msg.respond({
+    text: swear,
+    response_type: "in_channel"
+  });
 });
 
 // attach Slapp to express server
